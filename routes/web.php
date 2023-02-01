@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,10 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('adminlte.main_master');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/task/list', [TaskController::class, 'index']);
+
 
 require __DIR__.'/auth.php';
